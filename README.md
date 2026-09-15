@@ -1,8 +1,14 @@
+<div align="center">
+
 # BunkVerse
 
 ### Smart Attendance & Bunk Management System for Students
 
-> **The goal isn't just to bunk; it's to plan your adventures without losing your attendance.**
+**The goal isn't just to bunk; it's to plan your adventures without losing your attendance.**
+
+[![Google Play](https://img.shields.io/badge/Google%20Play-Download%20BunkVerse-414141?style=for-the-badge&logo=google-play&logoColor=white)](https://play.google.com/store/apps/details?id=com.amoghvp.bunkverse)
+
+</div>
 
 ---
 
@@ -16,17 +22,9 @@ BunkVerse is designed around the idea of **planning attendance responsibly**, gi
 
 ---
 
-## Available on Google Play
-
-BunkVerse is officially published on the Google Play Store.
-
-[![Get it on Google Play](https://img.shields.io/badge/Google%20Play-Download%20BunkVerse-414141?style=for-the-badge&logo=google-play&logoColor=white)](https://play.google.com/store/apps/details?id=com.amoghvp.bunkverse)
-
----
-
 # Features
 
-## Bunk Bank
+## 🏦 Bunk Bank
 
 The core system behind BunkVerse.
 
@@ -41,7 +39,7 @@ The Bunk Bank is designed to turn complicated attendance calculations into an ea
 
 ---
 
-## Attendance Tracking
+## 📅 Attendance Tracking
 
 BunkVerse provides a calendar-based system for recording and managing daily attendance.
 
@@ -53,9 +51,9 @@ Students can record:
 
 The attendance calendar uses visual indicators to make the current situation easy to understand:
 
-- **Green** — Safe
-- **Yellow** — Caution
-- **Red** — Danger
+- 🟢 **Green** — Safe
+- 🟡 **Yellow** — Caution
+- 🔴 **Red** — Danger
 
 BunkVerse also accounts for days that should not affect attendance calculations, including:
 
@@ -85,7 +83,7 @@ BunkVerse supports:
 
 ---
 
-## Saturday & Weekend Support
+## 🗓️ Saturday & Weekend Support
 
 Saturday schedules can vary significantly between colleges, so BunkVerse provides flexible weekend scheduling options.
 
@@ -99,7 +97,7 @@ This allows BunkVerse to adapt to different college schedules instead of assumin
 
 ---
 
-## Timetable & Subject Management
+## ⏰ Timetable & Subject Management
 
 BunkVerse includes a flexible weekly timetable system designed to reduce manual schedule configuration.
 
@@ -111,7 +109,7 @@ BunkVerse includes a flexible weekly timetable system designed to reduce manual 
 
 ---
 
-## Attendance Reports & Analytics
+## 📊 Attendance Reports & Analytics
 
 BunkVerse provides detailed attendance reports to help students understand their attendance over different periods.
 
@@ -128,15 +126,15 @@ Users can also view attendance:
 
 Attendance is presented using visual progress indicators and simple status categories:
 
-- **Green** — 75% or above
-- **Yellow** — 60–74%
-- **Red** — Below 60%
+- 🟢 **Green** — 75% or above
+- 🟡 **Yellow** — 60–74%
+- 🔴 **Red** — Below 60%
 
 This makes it easier to identify attendance trends and understand which subjects may require attention.
 
 ---
 
-## Privacy & Offline Storage
+## 💾 Privacy & Offline Storage
 
 BunkVerse follows a **local-first approach** to attendance management.
 
@@ -155,7 +153,7 @@ Internet connectivity is primarily required for services such as advertisements.
 
 ---
 
-## Backup & Restore
+## 📤 Backup & Restore
 
 BunkVerse includes a CSV-based backup system that allows users to export their application data for personal backup or transfer purposes.
 
@@ -175,7 +173,7 @@ This provides users with a way to maintain a personal copy of their data without
 
 ---
 
-## Built-in Tutorial
+## 📖 Built-in Tutorial
 
 BunkVerse includes a built-in tutorial to help users understand the application's features and workflows.
 
@@ -185,7 +183,7 @@ This allows the tutorial to remain integrated within the application without req
 
 ---
 
-## Complete Data Reset
+## 🧹 Complete Data Reset
 
 BunkVerse provides a complete reset option for users who want to start over.
 
@@ -298,25 +296,7 @@ The visual system includes:
 
 # Screenshots
 
-## Dashboard
-
-![BunkVerse Dashboard](screenshots/dashboard.png)
-
-## Bunk Bank
-
-![BunkVerse Bunk Bank](screenshots/bunk-bank.png)
-
-## Attendance Calendar
-
-![BunkVerse Attendance](screenshots/attendance.png)
-
-## Timetable
-
-![BunkVerse Timetable](screenshots/timetable.png)
-
-## Reports & Analytics
-
-![BunkVerse Reports](screenshots/reports.png)
+> Screenshots will be added here.
 
 ---
 
@@ -409,6 +389,10 @@ It is designed to help students **understand their attendance, calculate their a
 
 ---
 
+<div align="center">
+
 ## BunkVerse
 
 **Smart attendance. Smarter planning.**
+
+</div>
