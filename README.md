@@ -98,25 +98,25 @@ The backup can contain subjects, attendance records, timetable data, Bunk Bank i
 
 ## Screenshots
 
-### Dashboard
+### Homepage
 
-<img src="screenshots/dashboard.png" alt="BunkVerse Dashboard" width="300">
-
-### Bunk Bank
-
-<img src="screenshots/bunk-bank.png" alt="BunkVerse Bunk Bank" width="300">
+<img src="screenshots/1_Homepage.png" alt="BunkVerse Dashboard" width="300">
 
 ### Attendance Calendar
 
-<img src="screenshots/attendance.png" alt="BunkVerse Attendance Calendar" width="300">
+<img src="screenshots/3_AttendaceLog.png" alt="BunkVerse Attendance Calendar" width="300">
 
 ### Timetable
 
-<img src="screenshots/timetable.png" alt="BunkVerse Timetable" width="300">
+<img src="screenshots/5_Timetable.png" alt="BunkVerse Timetable" width="300">
 
 ### Reports & Analytics
 
-<img src="screenshots/reports.png" alt="BunkVerse Reports" width="300">
+<img src="screenshots/4_Summary.png" alt="BunkVerse Reports" width="300">
+
+### Bunk Bank
+
+<img src="screenshots/8_BunkBank_OG.png" alt="BunkVerse Bunk Bank" width="300">
 
 ---
 
