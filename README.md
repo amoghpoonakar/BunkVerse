@@ -1,227 +1,113 @@
 <div align="center">
 
-<img src="assets/bunkverse-logo.png" alt="BunkVerse Logo" width="180">
+<img src="app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" alt="BunkVerse Logo" width="180">
 
 # BunkVerse
 
-### Smart Attendance & Bunk Management System for Students
+### The Ultimate Futuristic Attendance & Bunk Bank Manager
 
-**The goal isn't just to bunk; it's to plan your adventures without losing your attendance.**
+**"The goal isn't just to bunk; it's to plan your adventures without losing your attendance."**
 
-[![Google Play](https://img.shields.io/badge/Google%20Play-Download%20BunkVerse-414141?style=for-the-badge&logo=google-play&logoColor=white)](https://play.google.com/store/apps/details?id=com.amoghvp.bunkverse)
+[![Platform](https://img.shields.io/badge/Platform-Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com/)
+[![Language](https://img.shields.io/badge/Language-Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)](https://www.java.com/)
+[![Target SDK](https://img.shields.io/badge/Target_SDK-36-00B4FF?style=for-the-badge&logo=android)](https://developer.android.com/about/versions/15)
 
 </div>
 
 ---
 
-## About
+## 🌌 About BunkVerse
 
-BunkVerse is a student-focused attendance management application designed to make attendance tracking, analysis, and planning easier.
+**BunkVerse** is a high-tech, student-centric Android application that treats your college attendance like a financial ledger. Designed with a futuristic **HUD-style Dark Theme** (`#060E1C` with Cyan accents), it moves beyond simple percentage tracking to provide a comprehensive **Bunk Bank** system.
 
-Instead of simply displaying an attendance percentage, BunkVerse introduces the **Bunk Bank** — a system that helps students understand how many classes they can safely miss, carry unused bunks forward, or borrow from future months when necessary.
-
-BunkVerse is designed around the idea of **planning attendance responsibly**, giving students a clearer picture of their attendance situation without relying on manual calculations.
+Whether you're planning a trip, dealing with medical issues, or just need a break, BunkVerse calculates exactly how much "attendance currency" you have to spend while keeping you above your college's required threshold.
 
 ---
 
-## Features
+## 🚀 Key Subsystems
 
-### Bunk Bank
+### 💳 The "Bunk Bank" Ledger
+Treat your skips like a bank account. 
+*   **Available Bunks:** Real-time calculation of safe skips remaining.
+*   **Bunk Pass:** Carry forward surplus attendance to the next month.
+*   **Bunk Loan:** Borrow skips from future months if you have a projected surplus.
+*   **Medical Leave:** Neutralize absences so they don't impact your official percentage.
+*   **Safety Undo:** A dedicated ledger system to reverse recent loans or medical entries.
 
-The core system behind BunkVerse.
+### 🤖 ZUMI — The Local Assistant
+BunkVerse features **ZUMI**, a specialized local engine (`AssistantEngine.java`) that allows you to interact with your data using natural language.
+*   *"Can I bunk DBMS today?"*
+*   *"What is my overall attendance?"*
+*   *"Show me my timetable for tomorrow."*
+*   **Privacy-First:** All processing happens locally; your queries never leave your device.
 
-- Available Bunks
-- Bunk Pass
-- Bunk Loan
-- Medical Leave
-- Undo
-- Ledger Reset
+### 📅 Smart HUD Calendar & Logging
+*   **Range Logging:** Long-press to bulk-log entire weeks of holidays or exam durations.
+*   **Exclusion Logic:** Automatically excludes Sundays, Holidays, and Exams for fair statistical reporting.
+*   **Saturday Special:** Flexible logic to borrow any weekday's timetable or set a custom manual half-day schedule.
+*   **Daily Overrides:** Handle "Classes Cancelled" or "Extra Classes" on the fly without breaking your core timetable.
 
-[View the complete Bunk Bank documentation →](docs/BUNK_BANK.md)
-
-### Attendance Tracking
-
-Calendar-based attendance management supporting:
-
-- Full Day Present
-- Absent
-- Partial Attendance
-- Date-range attendance management
-- Holidays
-- Examination days
-- Cancelled classes
-- Extra classes
-
-### Timetable & Subject Management
-
-- Flexible weekly timetable
-- Automatic class timing calculation
-- Per-day lunch breaks
-- Custom subject short codes
-- Weekday-to-Saturday timetable copying
-- Custom Saturday schedules
-- Weekend class support
-
-### Reports & Analytics
-
-Generate attendance reports for:
-
-- Entire semester
-- Individual months
-- Custom date ranges
-- All subjects
-- Individual subjects
-
-Attendance status is represented as:
-
-- 🟢 **Safe** — 75% or above
-- 🟡 **Caution** — 60–74%
-- 🔴 **Danger** — Below 60%
-
-### Privacy & Offline Storage
-
-BunkVerse follows a **local-first approach**.
-
-Attendance, timetable, subject, Bunk Bank, and application settings are stored locally on the device.
-
-There is no account registration or cloud-based attendance tracking.
-
-### Backup
-
-Application data can be exported as:
-
-`BunkVerse_Backup.csv`
-
-The backup can contain subjects, attendance records, timetable data, Bunk Bank information, and application settings.
+### 🕒 HUD Timetable Management
+*   **Auto-Duration:** Enter subject duration (mins), and the app auto-calculates slot end-times.
+*   **Lunch Logic:** Per-day custom lunch break configurations that are automatically skipped during logging.
+*   **Full Viewer:** A dedicated horizontal scrolling day selector for a crisp overview of your week.
 
 ---
 
-## Screenshots
+## 📊 Analytics & Reporting
 
-### Dashboard
+BunkVerse provides high-density visual feedback using custom circular progress bars and color-coded status markers:
 
-<img src="screenshots/dashboard.png" alt="BunkVerse Dashboard" width="300">
+- 🟢 **SAFE (≥ 75%)** — You have a healthy bunk balance.
+- 🟡 **CAUTION (60–74%)** — Approach the bunk limit with care.
+- 🔴 **DANGER (< 60%)** — Immediate attendance recovery required.
 
-### Bunk Bank
-
-<img src="screenshots/bunk-bank.png" alt="BunkVerse Bunk Bank" width="300">
-
-### Attendance Calendar
-
-<img src="screenshots/attendance.png" alt="BunkVerse Attendance Calendar" width="300">
-
-### Timetable
-
-<img src="screenshots/timetable.png" alt="BunkVerse Timetable" width="300">
-
-### Reports & Analytics
-
-<img src="screenshots/reports.png" alt="BunkVerse Reports" width="300">
+Reports are available for the full **Semester**, **Monthly breakdowns**, or **Custom Date Ranges**.
 
 ---
 
-## Technology Stack
+## 🛠 Technology Stack
 
 | Component | Technology |
 |---|---|
-| Language | Java |
-| Platform | Android |
-| Local Database | Room / SQLite |
-| UI | Material Components |
-| Serialization | Gson |
-| Animations | Lottie |
-| Tutorial | WebView |
-| Advertising | Google AdMob |
-| Minimum SDK | API 24 |
-| Target SDK | API 36 |
-
-[View the architecture documentation →](docs/ARCHITECTURE.md)
+| **Language** | Java |
+| **Architecture** | Local-First / Repository Pattern |
+| **Database** | **Room Persistence Library** (SQLite) |
+| **UI Framework** | Material 3 (M3) + Custom HUD XML |
+| **Animations** | Lottie + Layout Transition API |
+| **Utilities** | Gson, WebView (Markdown Parser) |
+| **Minimum SDK** | API 24 (Android 7.0) |
+| **Target SDK** | API 36 (Android 15 Preview) |
 
 ---
 
-## Project Information
+## 🛡️ Privacy & Data Portability
 
-| Property | Details |
-|---|---|
-| Project | BunkVerse |
-| Developer | Amogh V P |
-| Creator Name | AmoghVP |
-| Current Version | 1.6 |
-| Build | 6 |
-| Package | `com.amoghvp.bunkverse` |
-| Minimum SDK | API 24 |
-| Target SDK | API 36 |
-| Platform | Android |
-| Language | Java |
-| License | Proprietary / Private |
+*   **100% Offline:** No account creation, no cloud syncing, and zero tracking.
+*   **CSV Backup Engine:** Export your entire life — subjects, logs, loans, and settings — into a single `BunkVerse_Backup.csv`.
+*   **Markdown Tutorial:** A built-in documentation engine that parses `tutorial.md` into a styled HTML viewer.
+*   **Self-Destruct:** A one-tap **Full Reset** mechanism to wipe all data instantly.
 
 ---
 
-## Source Code
+## 👨‍💻 Developer Information
 
-The BunkVerse application source code is **proprietary and is not publicly available**.
+**BunkVerse** is a solo project developed by **Amogh V P (AmoghVP)**. 
 
-This repository is a **project showcase and documentation repository**.
-
-It may contain:
-
-- Feature documentation
-- Architecture information
-- Screenshots
-- Visual assets
-- Development information
-- Release information
-
-It does not contain:
-
-- Application source code
-- Android Studio project files
-- Signing keys
-- Private credentials
-- API secrets
-- Production databases
-- Other confidential development resources
-
-The BunkVerse source code remains privately maintained by the developer.
+> *"I built BunkVerse because keeping track of attendance across complex schedules, holidays, and medical leaves is a mathematical nightmare. This app gives you the data; what you do with it is your call."*
 
 ---
 
-## Project Status
+## 📄 License
 
-**Published on Google Play**
-
-BunkVerse is an actively maintained project and may receive future updates, improvements, and additional platform support.
-
----
-
-## Philosophy
-
-BunkVerse isn't designed to encourage students to blindly skip classes.
-
-It is designed to help students **understand their attendance, calculate their available flexibility, and make informed decisions**.
-
-> **Track smarter. Plan better. Bunk responsibly.**
-
----
-
-## Developer
-
-### Amogh V P
-
-**AmoghVP**
-
-BunkVerse is an independently developed student-focused application created to solve a practical problem with attendance management and planning.
-
-The project covers the complete development cycle:
-
-**Concept → UI/UX → Development → Database Architecture → Testing → Deployment → Google Play Publishing**
+**Proprietary / Private Development**  
+All rights reserved by the developer. This repository serves as a showcase of the application's architecture and feature set.
 
 ---
 
 <div align="center">
 
-## BunkVerse
-
-**Smart attendance. Smarter planning.**
+**Track smarter. Plan better. Bunk responsibly.**  
+Built with 💻 and ☕ by AmoghVP.
 
 </div>
