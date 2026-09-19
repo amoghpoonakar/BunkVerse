@@ -1,158 +1,344 @@
-# Bunk Bank
+# BunkVerse Features
 
-The Bunk Bank is the core attendance-planning system developed for BunkVerse.
-
-Instead of treating attendance as only a percentage, BunkVerse represents attendance flexibility through available bunks.
+This document provides a detailed overview of the features available in BunkVerse.
 
 ---
 
-## Concept
+## 1. Bunk Bank
 
-Traditional attendance tracking answers:
+The Bunk Bank is the central concept behind BunkVerse.
 
-> "What is my attendance percentage?"
+Instead of requiring students to manually calculate how many classes they can miss, BunkVerse represents attendance flexibility through a system of available bunks.
 
-BunkVerse additionally aims to answer:
+### Available Bunks
 
-> "How much attendance flexibility do I have?"
+Available Bunks represents the number of classes a student can safely miss while maintaining the configured attendance requirement.
 
-The Bunk Bank is designed around this second question.
+The calculation is based on the student's attendance data and required attendance percentage.
 
----
+The Bunk Bank also tracks used bunks and calculates remaining bunks from the current monthly allocation.
 
-## Available Bunks
+### Bunk Pass
 
-Available Bunks represents the number of classes that can be missed while maintaining the configured attendance requirement.
+Unused bunks from a completed month can be carried forward into the following month.
 
-The available amount changes as attendance records change.
+This allows unused attendance flexibility to be retained rather than discarded.
 
-Bunk Bank also tracks how many bunks have been used during the current month and derives the remaining bunk allowance from the current allocation.
+### Bunk Loan
 
-The basic relationship is:
+Bunk Loan allows students to borrow available bunks from future months when additional flexibility is required.
 
-```text
-Remaining Bunks = Available Bunks - Used Bunks
-```
+Borrowed bunks are tracked through the Bunk Bank ledger.
 
-The remaining value is never allowed to become negative.
+### Medical Leave
 
----
+Eligible past absences can be converted into medical leave so that they no longer affect the relevant attendance calculation.
 
-## Bunk Pass
+### Undo
 
-Bunk Pass allows unused bunks from a completed month to be carried into the next month.
+Recent Bunk Loan and Medical Leave operations can be reversed when an entry was made incorrectly.
 
-### Purpose
+### Ledger Reset
 
-Without a carry-forward mechanism, unused attendance flexibility would effectively disappear when a month ends.
+A monthly ledger can be completely reset.
 
-Bunk Pass allows that unused flexibility to remain available for future planning.
+When a ledger containing borrowed bunks is reset, borrowed bunks are automatically returned to the months from which they originally came.
 
 ---
 
-## Bunk Loan
+## 2. ZUMI — Built-in Student Assistant
 
-Bunk Loan allows bunks to be borrowed from future months.
+ZUMI is BunkVerse's built-in local assistant.
 
-### Purpose
+ZUMI provides a natural-language interface for supported timetable, attendance, and Bunk Bank information.
 
-There may be situations where a student needs more attendance flexibility than the current month provides.
+### Timetable Questions
 
-Instead of manually altering attendance calculations, BunkVerse records the borrowed amount through the Bunk Bank system.
+Users can ask ZUMI about their schedule, including:
 
-Borrowed bunks remain associated with their original source months.
+- Today's classes
+- Tomorrow's classes
+- A named weekday
+- Weekly timetable information
 
----
+### Attendance Questions
 
-## Medical Leave
+ZUMI can answer supported attendance questions for:
 
-Medical Leave allows eligible past absences to be converted so they no longer affect the relevant attendance calculation.
+- Individual subjects
+- Overall logged attendance
 
-This operation is recorded within the Bunk Bank system.
+Subject names can be identified using the configured full subject name or short code.
 
----
+### Bunk Questions
 
-## Undo
+ZUMI can answer supported bunk-management questions such as:
 
-BunkVerse provides undo functionality for recent Bunk Loan and Medical Leave operations.
+- Whether a subject can be bunked on a particular day
+- How many bunks remain
+- Which subjects still have bunks available this month
+- How many classes can still be bunked
 
-This allows users to correct accidental changes without manually reconstructing the previous state.
+For these answers, ZUMI reads Bunk Bank information from the application's Bunk Bank calculator.
 
----
+### Natural Language
 
-## Ledger
+ZUMI supports common variations of student phrasing, including questions such as:
 
-The Bunk Bank maintains a monthly ledger of attendance flexibility.
+- "Can I bunk DBMS?"
+- "Can I skip OS?"
+- "Can I miss class?"
+- "How many bunks are left?"
+- "What classes can I bunk this month?"
 
-The ledger keeps track of operations such as:
+The assistant also supports basic conversational follow-ups such as "what about tomorrow?" and "and today?".
 
-- Bunk Pass
-- Bunk Loan
-- Medical Leave
+### Voice Input
 
-This provides a structured history of how attendance flexibility has been used.
+ZUMI can receive text produced through Android speech recognition, allowing users to ask supported questions using voice input.
 
----
+### Supported Conversation
 
-## ZUMI Integration
+ZUMI also handles basic conversational interactions such as:
 
-ZUMI uses the Bunk Bank as its source for supported bunk-related questions.
+- Greetings
+- Thanks
+- Goodbyes
+- Help requests
 
-ZUMI does not maintain a separate bunk balance.
-
-When a user asks questions such as:
-
-> "How many bunks do I have left?"
-
-or:
-
-> "What classes can I bunk this month?"
-
-ZUMI reads the current monthly statistics from the Bunk Bank calculator.
-
-For a specific subject, ZUMI can also check whether that subject has remaining bunks and whether it appears on the requested day's timetable.
-
-This keeps ZUMI's bunk responses connected to the same underlying Bunk Bank data used by the application.
-
-### Monthly Statistics
-
-The Bunk Bank calculator maintains monthly statistics including:
-
-- Total classes
-- Available bunks
-- Used bunks
-- Medical leaves
-- Remaining bunks
-- Passed-month state
-
-Remaining bunks are calculated as:
-
-```text
-Remaining Bunks = max(0, Available Bunks - Used Bunks)
-```
-
-This allows ZUMI to answer bunk questions using the current monthly state instead of relying on a separate percentage-based estimate.
+Unsupported requests receive a development response rather than an invented answer.
 
 ---
 
-## Ledger Reset
+## 3. Attendance Tracking
 
-A month can be completely reset through the Ledger Reset functionality.
+BunkVerse provides calendar-based attendance management.
 
-When borrowed bunks are present, the reset process automatically returns them to their original source months.
+### Attendance States
 
-This prevents borrowed attendance flexibility from permanently altering future monthly allocations.
+A day can be recorded as:
+
+- Full Day Present
+- Absent
+- Partial Attendance
+
+Partial attendance allows individual subjects to be selected based on attendance for that particular day.
+
+### Attendance Indicators
+
+The calendar uses three visual states:
+
+- 🟢 Green — Safe
+- 🟡 Yellow — Caution
+- 🔴 Red — Danger
+
+### Non-Attendance Days
+
+BunkVerse can account for days that should not affect attendance calculations, including:
+
+- Sundays
+- Holidays
+- Examination days
+
+### Date Range Selection
+
+Users can long-press and select a range of dates to apply attendance-related changes across multiple days.
+
+This is particularly useful for:
+
+- Holidays
+- Examination periods
+- Multiple-day updates
+- Clearing previously entered attendance
+
+### Cancelled Classes
+
+Individual scheduled classes can be removed from a particular day when a class is cancelled.
+
+### Extra Classes
+
+Classes outside the normal timetable can be added to a particular day.
 
 ---
 
-## Responsible Attendance Planning
+## 4. Saturday & Weekend Support
 
-The Bunk Bank is not intended to encourage irresponsible attendance.
+BunkVerse supports different approaches to weekend scheduling.
 
-Its purpose is to make attendance calculations easier to understand and help students make informed decisions.
+Users can:
 
-ZUMI follows the same principle by presenting information from the student's existing Bunk Bank rather than encouraging attendance decisions without the underlying data.
+- Copy a timetable from any weekday to Saturday.
+- Create a custom half-day Saturday timetable.
+- Record attendance for weekend classes.
 
-The philosophy behind the system is:
+This allows the application to adapt to different college schedules.
 
-> **The goal isn't just to bunk; it's to plan your adventures without losing your attendance.**
+---
+
+## 5. Timetable Management
+
+BunkVerse provides a customizable weekly timetable.
+
+### Automatic Class Timing
+
+Class end times are calculated automatically based on the configured duration of each subject.
+
+### Lunch Breaks
+
+Lunch breaks can be configured separately for each day.
+
+The timetable automatically accounts for these breaks when generating the daily schedule.
+
+### Subject Short Codes
+
+Subjects can have short codes for display purposes.
+
+For example:
+
+`Database Management Systems`
+
+can be represented in the interface using:
+
+`DBMS`
+
+The full subject name is retained internally.
+
+---
+
+## 6. Attendance Reports
+
+Attendance reports can be generated for different periods.
+
+### Available Periods
+
+- Entire Semester
+- Individual Month
+- Custom Date Range
+
+### Subject Filtering
+
+Reports can display:
+
+- All subjects
+- A specific subject
+
+### Attendance Categories
+
+- 🟢 75% or above — Safe
+- 🟡 60–74% — Caution
+- 🔴 Below 60% — Danger
+
+---
+
+## 7. Local-First Storage
+
+BunkVerse stores its core application data locally on the user's device.
+
+This includes:
+
+- Attendance records
+- Subjects
+- Timetable configuration
+- Bunk Bank information
+- Application settings
+
+ZUMI uses this locally available application data for its supported timetable, attendance, and Bunk Bank responses.
+
+No account is required to use the core attendance-management functionality.
+
+---
+
+## 8. Backup
+
+BunkVerse provides CSV-based data export.
+
+The generated file is:
+
+`BunkVerse_Backup.csv`
+
+The exported data can include:
+
+- Subjects
+- Attendance records
+- Timetable information
+- Bunk Bank data
+- Application settings
+
+The backup provides users with a personal copy of their application data.
+
+---
+
+## 9. Built-in Tutorial
+
+BunkVerse includes a tutorial stored as a local Markdown file.
+
+The application:
+
+1. Reads the Markdown content.
+2. Converts it into HTML.
+3. Displays the resulting content inside a styled WebView.
+
+This keeps the tutorial integrated into the application.
+
+---
+
+## 10. Complete Reset
+
+BunkVerse includes a complete reset function.
+
+The reset clears the application's locally stored database and preferences, returning the application to a fresh-install state.
+
+---
+
+## 11. Advertising
+
+BunkVerse uses Google AdMob for banner advertisements.
+
+The core attendance-management functionality is designed to operate locally without requiring a constant internet connection.
+
+Internet connectivity may be required for advertisement-related services.
+
+---
+
+## 12. Room for Improvement
+
+BunkVerse is actively evolving, and the following areas can be expanded in future versions.
+
+### ZUMI Improvements
+
+Potential ZUMI improvements include:
+
+- More advanced conversational context
+- More complex multi-step questions
+- Better follow-up understanding
+- More detailed attendance analysis
+- More detailed Bunk Bank explanations
+- More flexible date and time interpretation
+- Expanded voice interaction
+- Additional supported application actions
+- Deeper integration with more BunkVerse features
+- More personalized student workflows
+
+### Bunk Bank Improvements
+
+Potential improvements include:
+
+- More detailed monthly planning
+- Additional bunk-management insights
+- Expanded carry-forward functionality
+- Improved bunk usage visualization
+- More detailed historical analysis
+
+### Attendance & Analytics Improvements
+
+Future versions can provide additional attendance trends, analysis, and planning tools.
+
+### User Experience Improvements
+
+Potential improvements include:
+
+- Faster attendance logging
+- More streamlined timetable management
+- Improved report visualization
+- Additional customization options
+- Improved onboarding and tutorials
