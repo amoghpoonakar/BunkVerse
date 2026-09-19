@@ -26,6 +26,16 @@ Available Bunks represents the number of classes that can be missed while mainta
 
 The available amount changes as attendance records change.
 
+Bunk Bank also tracks how many bunks have been used during the current month and derives the remaining bunk allowance from the current allocation.
+
+The basic relationship is:
+
+```text
+Remaining Bunks = Available Bunks - Used Bunks
+```
+
+The remaining value is never allowed to become negative.
+
 ---
 
 ## Bunk Pass
@@ -84,6 +94,47 @@ This provides a structured history of how attendance flexibility has been used.
 
 ---
 
+## ZUMI Integration
+
+ZUMI uses the Bunk Bank as its source for supported bunk-related questions.
+
+ZUMI does not maintain a separate bunk balance.
+
+When a user asks questions such as:
+
+> "How many bunks do I have left?"
+
+or:
+
+> "What classes can I bunk this month?"
+
+ZUMI reads the current monthly statistics from the Bunk Bank calculator.
+
+For a specific subject, ZUMI can also check whether that subject has remaining bunks and whether it appears on the requested day's timetable.
+
+This keeps ZUMI's bunk responses connected to the same underlying Bunk Bank data used by the application.
+
+### Monthly Statistics
+
+The Bunk Bank calculator maintains monthly statistics including:
+
+- Total classes
+- Available bunks
+- Used bunks
+- Medical leaves
+- Remaining bunks
+- Passed-month state
+
+Remaining bunks are calculated as:
+
+```text
+Remaining Bunks = max(0, Available Bunks - Used Bunks)
+```
+
+This allows ZUMI to answer bunk questions using the current monthly state instead of relying on a separate percentage-based estimate.
+
+---
+
 ## Ledger Reset
 
 A month can be completely reset through the Ledger Reset functionality.
@@ -99,6 +150,8 @@ This prevents borrowed attendance flexibility from permanently altering future m
 The Bunk Bank is not intended to encourage irresponsible attendance.
 
 Its purpose is to make attendance calculations easier to understand and help students make informed decisions.
+
+ZUMI follows the same principle by presenting information from the student's existing Bunk Bank rather than encouraging attendance decisions without the underlying data.
 
 The philosophy behind the system is:
 
