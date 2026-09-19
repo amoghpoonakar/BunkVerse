@@ -16,9 +16,11 @@
 
 ## About
 
-BunkVerse is a student-focused attendance management application designed to make attendance tracking, analysis, and planning easier.
+BunkVerse is a student-focused attendance management application designed to make attendance tracking, analysis, planning, and timetable management easier.
 
 Instead of simply displaying an attendance percentage, BunkVerse introduces the **Bunk Bank** — a system that helps students understand how many classes they can safely miss, carry unused bunks forward, or borrow from future months when necessary.
+
+BunkVerse also includes **ZUMI**, a built-in student assistant that lets users interact with their timetable, attendance, and Bunk Bank information through natural-language questions.
 
 BunkVerse is designed around the idea of **planning attendance responsibly**, giving students a clearer picture of their attendance situation without relying on manual calculations.
 
@@ -38,6 +40,23 @@ The core system behind BunkVerse.
 - Ledger Reset
 
 [View the complete Bunk Bank documentation →](docs/BUNK_BANK.md)
+
+### ZUMI — Student Assistant
+
+ZUMI is BunkVerse's built-in local assistant for interacting with timetable, attendance, and Bunk Bank information.
+
+Users can ask questions such as:
+
+- "What classes do I have today?"
+- "What's my timetable tomorrow?"
+- "What's my attendance in OS?"
+- "How many bunks do I have left?"
+- "Can I bunk DBMS today?"
+- "What classes can I bunk this month?"
+
+ZUMI supports natural variations of common questions and lightweight conversational follow-ups. It can also use Android speech recognition for voice input.
+
+For bunk-related questions, ZUMI uses the application's Bunk Bank data, including available, used, and remaining bunks, rather than maintaining a separate bunk balance.
 
 ### Attendance Tracking
 
@@ -85,6 +104,8 @@ BunkVerse follows a **local-first approach**.
 Attendance, timetable, subject, Bunk Bank, and application settings are stored locally on the device.
 
 There is no account registration or cloud-based attendance tracking.
+
+ZUMI's core timetable, attendance, and Bunk Bank functionality works with the information available inside the application.
 
 ### Backup
 
@@ -194,11 +215,66 @@ BunkVerse is an actively maintained project and may receive future updates, impr
 
 ---
 
+## Room for Improvement
+
+BunkVerse is an actively evolving project. Future development can expand existing systems and introduce additional capabilities.
+
+### ZUMI
+
+ZUMI currently focuses on timetable, attendance, and Bunk Bank questions. Future improvements could make ZUMI a deeper conversational interface for BunkVerse.
+
+Potential improvements include:
+
+- More natural conversational context
+- More complex multi-step questions
+- Better understanding of follow-up questions
+- Deeper timetable and attendance analysis
+- More detailed Bunk Bank explanations
+- More flexible date and time interpretation
+- Expanded voice interaction
+- More personalized student workflows
+- Additional app actions through conversational commands
+- Broader access to supported BunkVerse features
+
+The long-term goal is for ZUMI to become a more deeply integrated way of interacting with BunkVerse while continuing to rely on the application's own data.
+
+### Bunk Management
+
+The Bunk Bank system can continue to evolve with additional planning and analysis capabilities.
+
+Potential improvements include:
+
+- More detailed monthly planning
+- Additional bunk-management insights
+- Expanded carry-forward options
+- Improved bunk usage visualization
+- More detailed historical analysis
+
+### Attendance & Analytics
+
+Future versions can expand attendance reporting and analytics with additional ways of understanding attendance trends and planning future attendance.
+
+### User Experience
+
+The application's interface and workflows can continue to be refined based on student feedback and real-world usage.
+
+Potential improvements include:
+
+- Faster attendance logging
+- More streamlined timetable management
+- Improved report visualization
+- Additional customization options
+- Better onboarding and tutorials
+
+---
+
 ## Philosophy
 
 BunkVerse isn't designed to encourage students to blindly skip classes.
 
 It is designed to help students **understand their attendance, calculate their available flexibility, and make informed decisions**.
+
+ZUMI follows the same philosophy by helping students access and understand their existing attendance, timetable, and Bunk Bank information more naturally.
 
 > **Track smarter. Plan better. Bunk responsibly.**
 
