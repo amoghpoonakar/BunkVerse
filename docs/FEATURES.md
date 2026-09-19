@@ -16,6 +16,8 @@ Available Bunks represents the number of classes a student can safely miss while
 
 The calculation is based on the student's attendance data and required attendance percentage.
 
+The Bunk Bank also tracks used bunks and calculates remaining bunks from the current monthly allocation.
+
 ### Bunk Pass
 
 Unused bunks from a completed month can be carried forward into the following month.
@@ -44,7 +46,71 @@ When a ledger containing borrowed bunks is reset, borrowed bunks are automatical
 
 ---
 
-## 2. Attendance Tracking
+## 2. ZUMI — Built-in Student Assistant
+
+ZUMI is BunkVerse's built-in local assistant.
+
+ZUMI provides a natural-language interface for supported timetable, attendance, and Bunk Bank information.
+
+### Timetable Questions
+
+Users can ask ZUMI about their schedule, including:
+
+- Today's classes
+- Tomorrow's classes
+- A named weekday
+- Weekly timetable information
+
+### Attendance Questions
+
+ZUMI can answer supported attendance questions for:
+
+- Individual subjects
+- Overall logged attendance
+
+Subject names can be identified using the configured full subject name or short code.
+
+### Bunk Questions
+
+ZUMI can answer supported bunk-management questions such as:
+
+- Whether a subject can be bunked on a particular day
+- How many bunks remain
+- Which subjects still have bunks available this month
+- How many classes can still be bunked
+
+For these answers, ZUMI reads Bunk Bank information from the application's Bunk Bank calculator.
+
+### Natural Language
+
+ZUMI supports common variations of student phrasing, including questions such as:
+
+- "Can I bunk DBMS?"
+- "Can I skip OS?"
+- "Can I miss class?"
+- "How many bunks are left?"
+- "What classes can I bunk this month?"
+
+The assistant also supports basic conversational follow-ups such as "what about tomorrow?" and "and today?".
+
+### Voice Input
+
+ZUMI can receive text produced through Android speech recognition, allowing users to ask supported questions using voice input.
+
+### Supported Conversation
+
+ZUMI also handles basic conversational interactions such as:
+
+- Greetings
+- Thanks
+- Goodbyes
+- Help requests
+
+Unsupported requests receive a development response rather than an invented answer.
+
+---
+
+## 3. Attendance Tracking
 
 BunkVerse provides calendar-based attendance management.
 
@@ -95,7 +161,7 @@ Classes outside the normal timetable can be added to a particular day.
 
 ---
 
-## 3. Saturday & Weekend Support
+## 4. Saturday & Weekend Support
 
 BunkVerse supports different approaches to weekend scheduling.
 
@@ -109,7 +175,7 @@ This allows the application to adapt to different college schedules.
 
 ---
 
-## 4. Timetable Management
+## 5. Timetable Management
 
 BunkVerse provides a customizable weekly timetable.
 
@@ -139,7 +205,7 @@ The full subject name is retained internally.
 
 ---
 
-## 5. Attendance Reports
+## 6. Attendance Reports
 
 Attendance reports can be generated for different periods.
 
@@ -164,7 +230,7 @@ Reports can display:
 
 ---
 
-## 6. Local-First Storage
+## 7. Local-First Storage
 
 BunkVerse stores its core application data locally on the user's device.
 
@@ -176,11 +242,13 @@ This includes:
 - Bunk Bank information
 - Application settings
 
+ZUMI uses this locally available application data for its supported timetable, attendance, and Bunk Bank responses.
+
 No account is required to use the core attendance-management functionality.
 
 ---
 
-## 7. Backup
+## 8. Backup
 
 BunkVerse provides CSV-based data export.
 
@@ -200,7 +268,7 @@ The backup provides users with a personal copy of their application data.
 
 ---
 
-## 8. Built-in Tutorial
+## 9. Built-in Tutorial
 
 BunkVerse includes a tutorial stored as a local Markdown file.
 
@@ -214,7 +282,7 @@ This keeps the tutorial integrated into the application.
 
 ---
 
-## 9. Complete Reset
+## 10. Complete Reset
 
 BunkVerse includes a complete reset function.
 
@@ -222,10 +290,55 @@ The reset clears the application's locally stored database and preferences, retu
 
 ---
 
-## 10. Advertising
+## 11. Advertising
 
 BunkVerse uses Google AdMob for banner advertisements.
 
 The core attendance-management functionality is designed to operate locally without requiring a constant internet connection.
 
 Internet connectivity may be required for advertisement-related services.
+
+---
+
+## 12. Room for Improvement
+
+BunkVerse is actively evolving, and the following areas can be expanded in future versions.
+
+### ZUMI Improvements
+
+Potential ZUMI improvements include:
+
+- More advanced conversational context
+- More complex multi-step questions
+- Better follow-up understanding
+- More detailed attendance analysis
+- More detailed Bunk Bank explanations
+- More flexible date and time interpretation
+- Expanded voice interaction
+- Additional supported application actions
+- Deeper integration with more BunkVerse features
+- More personalized student workflows
+
+### Bunk Bank Improvements
+
+Potential improvements include:
+
+- More detailed monthly planning
+- Additional bunk-management insights
+- Expanded carry-forward functionality
+- Improved bunk usage visualization
+- More detailed historical analysis
+
+### Attendance & Analytics Improvements
+
+Future versions can provide additional attendance trends, analysis, and planning tools.
+
+### User Experience Improvements
+
+Potential improvements include:
+
+- Faster attendance logging
+- More streamlined timetable management
+- Improved report visualization
+- Additional customization options
+- Improved onboarding and tutorials
